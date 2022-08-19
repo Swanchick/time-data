@@ -1,0 +1,27 @@
+{
+  "name": "time-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Swanchick/time-data.git"
+  },
+  "author": "Swanchick",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Swanchick/time-data/issues"
+  },
+  "homepage": "https://github.com/Swanchick/time-data#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "express-fileupload": "^1.4.0",
+    "nodemon": "^2.0.19"
+  }
+}

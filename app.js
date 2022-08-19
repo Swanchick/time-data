@@ -1,6 +1,6 @@
 const express = require('express')
-const expressLayouts = require("express-ejs-layouts")
-const fileUpload = require('express-fileupload');
+const expressLayouts = require('express-ejs-layouts')
+const fileUpload = require('express-fileupload')
 const bodyParser = require("body-parser")
 const fs = require("fs")
 
@@ -11,10 +11,12 @@ const dir = "./src/"
 
 app.use(expressLayouts)
 app.set("view engine", "ejs")
-app.use(fileUpload());
+app.use(fileUpload())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get("/", (req, res) => {
+    console.log()
+    
     res.render("index")
 })
 

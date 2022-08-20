@@ -41,6 +41,11 @@ app.get("/files", async (req, res) => {
         return
     }
 
+    let _dir = `${dir}/${_uuid}`
+
+    if (!fs.existsSync(_dir)){
+        fs.mkdirSync(_dir)
+    }
 
     let images = fs.readdirSync(`${dir}/${_uuid}`)
 
@@ -75,7 +80,7 @@ app.post("/", async (req, res) => {
         res.send('File uploaded!')
     })
 
-    await sleep(60_000)
+    await sleep(300_000)
 
     fs.unlinkSync(filePath)
 })

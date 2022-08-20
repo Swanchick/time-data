@@ -30,7 +30,7 @@ app.get("/", async (req, res) => {
         res.cookie("uuid", id)
     }
     
-    res.render("index")
+    res.render("index", {pageName: "Home"})
 })
 
 app.get("/files", async (req, res) => {
@@ -49,7 +49,7 @@ app.get("/files", async (req, res) => {
 
     let images = fs.readdirSync(`${dir}/${_uuid}`)
 
-    res.render("files", {images: images, uuid: _uuid})
+    res.render("files", {images: images, uuid: _uuid, pageName: "Images"})
 })
 
 app.post("/", async (req, res) => {    
@@ -77,7 +77,7 @@ app.post("/", async (req, res) => {
             return res.status(500).send(err)
         }
 
-        res.send('File uploaded!')
+        res.redirect("/")
     })
 
     await sleep(300_000)

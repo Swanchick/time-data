@@ -1,17 +1,20 @@
-<div class="px-4 pt-5 my-5 text-center border-bottom">
-    <h1 class="display-4 fw-bold">All images</h1>
+<div class="px-4 pt-5 my-5 text-center">
+    
+    <% if (images.length === 0) { %>
+        <h1 class="display-4 fw-bold">No images :(</h1>
+        <a href="/">go home</a>
+    <% } else { %>
+        <h1 class="display-4 fw-bold">All images</h1>
+    <% } %>
+
     <div class="overflow-hidden">
-        <div class="container ">
-            <% for(var i=0; i<images.length; i++) {%>
+        <div class="container">
+            <% for(var i=0; i<images.length; i++) { %>
+                <p><%= images[i] %></p>
                 <img src="img/<%= uuid %>/<%= images[i]%>" class="border rounded-3" width="25%" loading="lazy">
+                
                 <p>   </p>
             <% } %>
         </div>
     </div>
 </div>
-
-<!-- <ul>
-    <% for(var i=0; i<images.length; i++) {%>
-       <img src="img/<%= uuid %>/<%= images[i]%>"></li>
-    <% } %>
-</ul> -->

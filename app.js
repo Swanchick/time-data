@@ -33,7 +33,7 @@ app.get("/", async (req, res) => {
     res.render("index", {pageName: "Home"})
 })
 
-app.get("/files", async (req, res) => {
+app.get("/images", async (req, res) => {
     let _uuid = req.cookies.uuid
     
     if (!_uuid){
@@ -50,6 +50,28 @@ app.get("/files", async (req, res) => {
     let images = fs.readdirSync(`${dir}/${_uuid}`)
 
     res.render("files", {images: images, uuid: _uuid, pageName: "Images"})
+})
+
+app.get("/images/:name", async (req, res) => {
+    let _uuid = req.cookies.uuid
+    
+    if (!_uuid){
+        res.redirect("/")
+        return
+    }
+
+    console.log(req.params.name)
+
+    // let _dir = `${dir}${_uuid}/${req.params.name}`
+    
+    let _dir = `${__dirname}/public/img/${_uuid}/${req.params.name}`
+
+    if (!fs.existsSync(_dir)){
+        res.redirect("/")
+        return
+    }
+
+    res.sendFile(_dir)
 })
 
 app.post("/", async (req, res) => {    
